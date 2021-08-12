@@ -1,8 +1,0 @@
-ros-noetic-rm-description (0.1.1-4buster) buster; urgency=high
-
-  * Reset all version to 0.1.0
-  * Contributors: qiayuan
-
- -- Qiayuan Liao <liaoqiayuan@gmail.com>  Wed, 11 Aug 2021 16:00:00 -0000
-
-
