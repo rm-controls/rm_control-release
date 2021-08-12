@@ -1,0 +1,11 @@
+ros-noetic-rm-control (0.1.1-1buster) buster; urgency=high
+
+  * Reset all version to 0.1.0
+  * Remove exec_depend rm_base of rm_control for ros_controllers CI
+  * Remove exec_depend: rm_description, rm_gazebo of rm_control
+  * Update package.xml url of rm_control
+  * Contributors: qiayuan
+
+ -- Qiayuan Liao <liaoqiayuan@gmail.com>  Wed, 11 Aug 2021 16:00:00 -0000
+
+
