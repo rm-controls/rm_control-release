@@ -30,13 +30,13 @@
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *******************************************************************************/
- 
+
 //
 // Created by qiayuan on 8/13/20.
 //
 
-#ifndef RM_COMMON_ORI_TOOL_H_
-#define RM_COMMON_ORI_TOOL_H_
+#pragma once
+
 #include <geometry_msgs/Quaternion.h>
 #include <tf/transform_datatypes.h>
 #include <eigen3/Eigen/Core>
@@ -45,14 +45,10 @@
  * Convert a quaternion to RPY.  Uses ZYX order (yaw-pitch-roll), but returns
  * angles in (roll, pitch, yaw).
  */
-void quatToRPY(const geometry_msgs::Quaternion &q, double &roll, double &pitch, double &yaw);
+void quatToRPY(const geometry_msgs::Quaternion& q, double& roll, double& pitch, double& yaw);
 
-double yawFromQuat(const geometry_msgs::Quaternion &q);
+double yawFromQuat(const geometry_msgs::Quaternion& q);
 
-tf::Quaternion getAverageQuaternion(
-    const std::vector<tf::Quaternion> &quaternions,
-    const std::vector<double> &weights);
+tf::Quaternion getAverageQuaternion(const std::vector<tf::Quaternion>& quaternions, const std::vector<double>& weights);
 
-tf::Quaternion rotationMatrixToQuaternion(const Eigen::Map<Eigen::Matrix3d> &rot);
-
-#endif // RM_COMMON_ORI_TOOL_H_
+tf::Quaternion rotationMatrixToQuaternion(const Eigen::Map<Eigen::Matrix3d>& rot);
