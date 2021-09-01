@@ -30,25 +30,27 @@
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *******************************************************************************/
- 
+
 //
 // Created by peter on 2021/7/17.
 //
 
-#ifndef RM_COMMON_REFEREE_DATA_H_
-#define RM_COMMON_REFEREE_DATA_H_
+#pragma once
 
 #include "rm_common/referee/protocol.h"
 
-namespace rm_common {
-struct CapacityData {
+namespace rm_common
+{
+struct CapacityData
+{
   double chassis_power_;
   double limit_power_;
   double buffer_power_;
   double cap_power_;
   bool is_online_ = false;
 };
-struct RefereeData {
+struct RefereeData
+{
   GameStatus game_status_;
   GameResult game_result_;
   GameRobotHp game_robot_hp_;
@@ -75,6 +77,4 @@ struct RefereeData {
   int robot_id_;
   bool is_online_ = false;
 };
-}
-
-#endif //RM_COMMON_REFEREE_DATA_H_
+}  // namespace rm_common
