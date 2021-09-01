@@ -1,0 +1,12 @@
+Source: ros-noetic-rm-common
+Section: misc
+Priority: optional
+Maintainer: qiayuan <liaoqiayuan@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), libeigen3-dev, ros-noetic-catkin, ros-noetic-control-msgs, ros-noetic-controller-manager-msgs, ros-noetic-dynamic-reconfigure, ros-noetic-geometry-msgs, ros-noetic-realtime-tools, ros-noetic-rm-msgs, ros-noetic-roscpp, ros-noetic-roslint, ros-noetic-tf
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-noetic-rm-common
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libeigen3-dev, ros-noetic-control-msgs, ros-noetic-controller-manager-msgs, ros-noetic-dynamic-reconfigure, ros-noetic-geometry-msgs, ros-noetic-realtime-tools, ros-noetic-rm-msgs, ros-noetic-roscpp, ros-noetic-roslint, ros-noetic-tf
+Description: The rm_common package
