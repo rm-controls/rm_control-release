@@ -1,3 +1,4 @@
+release_repo_url: https://github.com/rm-controls/rm_control-release.git
 tracks:
   noetic:
     actions:
