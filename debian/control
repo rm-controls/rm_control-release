@@ -1,0 +1,12 @@
+Source: ros-noetic-rm-hw
+Section: misc
+Priority: optional
+Maintainer: Qiayuan Liao <liaoqiayuan@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), ros-noetic-catkin, ros-noetic-controller-interface, ros-noetic-controller-manager, ros-noetic-hardware-interface, ros-noetic-joint-limits-interface, ros-noetic-realtime-tools, ros-noetic-rm-common, ros-noetic-rm-msgs, ros-noetic-roscpp, ros-noetic-roslint, ros-noetic-transmission-interface, ros-noetic-urdf
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-noetic-rm-hw
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-noetic-controller-interface, ros-noetic-controller-manager, ros-noetic-hardware-interface, ros-noetic-joint-limits-interface, ros-noetic-realtime-tools, ros-noetic-rm-common, ros-noetic-rm-msgs, ros-noetic-roscpp, ros-noetic-roslint, ros-noetic-transmission-interface, ros-noetic-urdf
+Description: ROS control warped interface for RoboMaster motor and some robot hardware
