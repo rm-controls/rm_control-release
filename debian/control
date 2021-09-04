@@ -1,0 +1,12 @@
+Source: ros-noetic-rm-description
+Section: misc
+Priority: optional
+Maintainer: Qiayuan Liao <liaoqiayuan@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), ros-noetic-catkin
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-noetic-rm-description
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-noetic-xacro
+Description: RoboMaster robot description files
