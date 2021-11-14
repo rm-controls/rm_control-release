@@ -1,0 +1,55 @@
+ros-noetic-rm-control (0.1.7-4buster) buster; urgency=high
+
+  * 0.1.6
+  * Update CHANGELOG
+  * Contributors: qiayuan
+
+ -- Qiayuan Liao <liaoqiayuan@gmail.com>  Sat, 25 Sep 2021 16:00:00 -0000
+
+ros-noetic-rm-control (0.1.6-4buster) buster; urgency=high
+
+
+
+ -- Qiayuan Liao <liaoqiayuan@gmail.com>  Sat, 25 Sep 2021 16:00:00 -0000
+
+ros-noetic-rm-control (0.1.5-4buster) buster; urgency=high
+
+
+
+ -- Qiayuan Liao <liaoqiayuan@gmail.com>  Wed, 01 Sep 2021 16:00:00 -0000
+
+ros-noetic-rm-control (0.1.4-4buster) buster; urgency=high
+
+
+
+ -- Qiayuan Liao <liaoqiayuan@gmail.com>  Wed, 01 Sep 2021 16:00:00 -0000
+
+ros-noetic-rm-control (0.1.3-4buster) buster; urgency=high
+
+  * Merge branch 'master' into master
+  * Rename rm_base to rm_hw
+  * Contributors: QiayuanLiao, qiayuan
+  * Merge branch 'master' into master
+  * Rename rm_base to rm_hw
+  * Contributors: QiayuanLiao, qiayuan
+
+ -- Qiayuan Liao <liaoqiayuan@gmail.com>  Tue, 31 Aug 2021 16:00:00 -0000
+
+ros-noetic-rm-control (0.1.2-4buster) buster; urgency=high
+
+  * Add exec_depend rm_control
+  * Contributors: qiayuan
+
+ -- Qiayuan Liao <liaoqiayuan@gmail.com>  Fri, 13 Aug 2021 16:00:00 -0000
+
+ros-noetic-rm-control (0.1.1-4buster) buster; urgency=high
+
+  * Reset all version to 0.1.0
+  * Remove exec_depend rm_base of rm_control for ros_controllers CI
+  * Remove exec_depend: rm_description, rm_gazebo of rm_control
+  * Update package.xml url of rm_control
+  * Contributors: qiayuan
+
+ -- Qiayuan Liao <liaoqiayuan@gmail.com>  Wed, 11 Aug 2021 16:00:00 -0000
+
+
