@@ -3,7 +3,7 @@ Changelog for package rm_common
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 0.1.8 (2021-12-7)
------------
+------------------
 * Merge branch 'master' into master
 * Merge remote-tracking branch 'origin/master'
 * Merge pull request `#14 <https://github.com/rm-controls/rm_control/issues/14>`_ from CQUMechaX/master
