@@ -1,0 +1,86 @@
+ros-noetic-rm-gazebo (0.1.8-2focal) focal; urgency=high
+
+  * Fix imu inertia and add imu to balance
+  * Merge branch 'master' into gimbal/opti_or_simplify
+  * Update CHANGELOG
+  * Merge branch 'master' into gimbal/opti_or_simplify
+  * Update URDF of imu
+  * Contributors: qiayuan
+
+ -- Qiayuan Liao <liaoqiayuan@gmail.com>  Mon, 06 Dec 2021 16:00:00 -0000
+
+ros-noetic-rm-gazebo (0.1.7-2focal) focal; urgency=high
+
+  * 0.1.6
+  * Update CHANGELOG
+  * Update URDF of imu
+  * Merge branch 'namespace' into rm_gazebo/imu_sensor_interface
+  * Merge pull request #8 <https://github.com/rm-controls/rm_control/issues/8> from ye-luo-xi-tui/namespace
+    Change name of namespace:from hardware_interface to rm_control.
+  * Change name of namespace:from hardware_interface to rm_control.
+  * Fix some stupid imu_sensor_interface bug in rm_gazebo
+  * Tested rm_gazebo imu data using Debug in line.
+    TODO: Add gravity and noise to the data
+  * Add imu_sensor_interface without test.
+  * Contributors: QiayuanLiao, qiayuan, yezi
+
+ -- Qiayuan Liao <liaoqiayuan@gmail.com>  Sat, 25 Sep 2021 16:00:00 -0000
+
+ros-noetic-rm-gazebo (0.1.6-2focal) focal; urgency=high
+
+  * Update URDF of imu
+  * Merge branch 'namespace' into rm_gazebo/imu_sensor_interface
+  * Merge pull request #8 <https://github.com/rm-controls/rm_control/issues/8> from ye-luo-xi-tui/namespace
+    Change name of namespace:from hardware_interface to rm_control.
+  * Change name of namespace:from hardware_interface to rm_control.
+  * Fix some stupid imu_sensor_interface bug in rm_gazebo
+  * Tested rm_gazebo imu data using Debug in line.
+    TODO: Add gravity and noise to the data
+  * Add imu_sensor_interface without test.
+  * Contributors: QiayuanLiao, qiayuan, yezi
+
+ -- Qiayuan Liao <liaoqiayuan@gmail.com>  Sat, 25 Sep 2021 16:00:00 -0000
+
+ros-noetic-rm-gazebo (0.1.5-2focal) focal; urgency=high
+
+
+
+ -- Qiayuan Liao <liaoqiayuan@gmail.com>  Wed, 01 Sep 2021 16:00:00 -0000
+
+ros-noetic-rm-gazebo (0.1.4-2focal) focal; urgency=high
+
+
+
+ -- Qiayuan Liao <liaoqiayuan@gmail.com>  Wed, 01 Sep 2021 16:00:00 -0000
+
+ros-noetic-rm-gazebo (0.1.3-2focal) focal; urgency=high
+
+  * Merge remote-tracking branch 'origin/master'
+  * Merge branch 'master' into master
+  * Use “pragma once” in rm_gazebo headers instead of include guards.
+  * Merge branch 'master' into master
+  * Contributors: QiayuanLiao, chenzheng, ye-luo-xi-tui, yezi
+  * Merge remote-tracking branch 'origin/master'
+  * Merge branch 'master' into master
+  * Use “pragma once” in rm_gazebo headers instead of include guards.
+  * Merge branch 'master' into master
+  * Contributors: QiayuanLiao, chenzheng, ye-luo-xi-tui, yezi
+
+ -- Qiayuan Liao <liaoqiayuan@gmail.com>  Tue, 31 Aug 2021 16:00:00 -0000
+
+ros-noetic-rm-gazebo (0.1.2-2focal) focal; urgency=high
+
+  * Run pre-commit
+  * Format rm_gazebo using clang-format
+  * Contributors: qiayuan
+
+ -- Qiayuan Liao <liaoqiayuan@gmail.com>  Fri, 13 Aug 2021 16:00:00 -0000
+
+ros-noetic-rm-gazebo (0.1.1-2focal) focal; urgency=high
+
+  * Reset all version to 0.1.0
+  * Contributors: qiayuan
+
+ -- Qiayuan Liao <liaoqiayuan@gmail.com>  Wed, 11 Aug 2021 16:00:00 -0000
+
+
