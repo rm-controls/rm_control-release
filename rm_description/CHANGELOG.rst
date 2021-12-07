@@ -3,7 +3,7 @@ Changelog for package rm_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 0.1.8 (2021-12-7)
------------
+------------------
 * Merge pull request `#19 <https://github.com/rm-controls/rm_control/issues/19>`_ from ye-luo-xi-tui/fix_rmua_bug
   Fix rmua bug
 * Change limit of rmua.

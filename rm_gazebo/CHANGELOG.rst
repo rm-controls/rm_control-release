@@ -3,7 +3,7 @@ Changelog for package rm_gazebo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 0.1.8 (2021-12-7)
------------
+------------------
 * Fix imu inertia and add imu to balance
 * Merge branch 'master' into gimbal/opti_or_simplify
 * Update CHANGELOG
