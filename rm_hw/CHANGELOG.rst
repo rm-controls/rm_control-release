@@ -3,7 +3,7 @@ Changelog for package rm_hw
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 0.1.8 (2021-12-7)
------------
+------------------
 * Fix End of files.
 * Merge branch 'master' into master
 * Update standard4.urdf.xacro and rm_hw/config/standard4.yaml.
