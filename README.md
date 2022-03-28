@@ -1,3 +1,32 @@
+## rm_control (noetic) - 0.1.9-1
+
+The packages in the `rm_control` repository were released into the `noetic` distro by running `/usr/bin/bloom-release -y --no-web --ros-distro noetic --override-release-repository-push-url https://github.com/rm-controls/rm_control-release.git rm_control` on `Mon, 28 Mar 2022 13:19:36 -0000`
+
+These packages were released:
+- `rm_common`
+- `rm_control`
+- `rm_dbus`
+- `rm_gazebo`
+- `rm_hw`
+- `rm_msgs`
+
+Version of package(s) in repository `rm_control`:
+
+- upstream repository: https://github.com/rm-controls/rm_control.git
+- release repository: https://github.com/rm-controls/rm_control-release.git
+- rosdistro version: `0.1.8-2`
+- old version: `0.1.8-2`
+- new version: `0.1.9-1`
+
+Versions of tools used:
+
+- bloom version: `0.10.7`
+- catkin_pkg version: `0.4.24`
+- rosdep version: `0.21.0`
+- rosdistro version: `0.8.3`
+- vcstools version: `0.1.42`
+
+
 ## rm_control (noetic) - 0.1.8-2
 
 The packages in the `rm_control` repository were released into the `noetic` distro by running `/usr/bin/bloom-release --ros-distro noetic rm_control` on `Tue, 07 Dec 2021 10:21:46 -0000`
