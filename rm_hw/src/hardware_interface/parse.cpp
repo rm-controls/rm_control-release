@@ -273,6 +273,11 @@ bool rm_hw::RmRobotHW::parseImuData(XmlRpc::XmlRpcValue& imu_datas, ros::NodeHan
         ROS_ERROR_STREAM("Imu " << name << " has no associated linear acceleration covariance.");
         continue;
       }
+      else if (!it->second.hasMember("angular_vel_offset"))
+      {
+        ROS_ERROR_STREAM("Imu " << name << " has no associated angular_vel_offset type");
+        continue;
+      }
       else if (!it->second.hasMember("angular_vel_coeff"))
       {
         ROS_ERROR_STREAM("Imu " << name << " has no associated angular velocity coefficient.");
@@ -293,6 +298,16 @@ bool rm_hw::RmRobotHW::parseImuData(XmlRpc::XmlRpcValue& imu_datas, ros::NodeHan
         ROS_ERROR_STREAM("Imu " << name << " has no associated filter type");
         continue;
       }
+      else if (!it->second.hasMember("angular_vel_offset"))
+      {
+        ROS_ERROR_STREAM("Imu " << name << " has no associated angular_vel_offset type");
+        continue;
+      }
+      XmlRpc::XmlRpcValue angular_vel_offsets = imu_datas[name]["angular_vel_offset"];
+      ROS_ASSERT(angular_vel_offsets.getType() == XmlRpc::XmlRpcValue::TypeArray);
+      ROS_ASSERT(angular_vel_offsets.size() == 3);
+      for (int i = 0; i < angular_vel_offsets.size(); ++i)
+        ROS_ASSERT(angular_vel_offsets[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
       XmlRpc::XmlRpcValue ori_cov = imu_datas[name]["orientation_covariance_diagonal"];
       ROS_ASSERT(ori_cov.getType() == XmlRpc::XmlRpcValue::TypeArray);
       ROS_ASSERT(ori_cov.size() == 3);
@@ -308,7 +323,6 @@ bool rm_hw::RmRobotHW::parseImuData(XmlRpc::XmlRpcValue& imu_datas, ros::NodeHan
       ROS_ASSERT(linear_cov.size() == 3);
       for (int i = 0; i < linear_cov.size(); ++i)
         ROS_ASSERT(linear_cov[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
-
       std::string filter_type = imu_datas[name]["filter"];
       // TODO(Zhenyu Ye): Add more types of filter.
       rm_common::ImuFilterBase* imu_filter;
@@ -339,6 +353,9 @@ bool rm_hw::RmRobotHW::parseImuData(XmlRpc::XmlRpcValue& imu_datas, ros::NodeHan
                          .ori = {},
                          .angular_vel = {},
                          .linear_acc = {},
+                         .angular_vel_offset = { static_cast<double>(angular_vel_offsets[0]),
+                                                 static_cast<double>(angular_vel_offsets[1]),
+                                                 static_cast<double>(angular_vel_offsets[2]) },
                          .ori_cov = { static_cast<double>(ori_cov[0]), 0., 0., 0., static_cast<double>(ori_cov[1]), 0.,
                                       0., 0., static_cast<double>(ori_cov[2]) },
                          .angular_vel_cov = { static_cast<double>(angular_cov[0]), 0., 0., 0.,
@@ -423,6 +440,51 @@ bool rm_hw::RmRobotHW::parseTofData(XmlRpc::XmlRpcValue& tof_datas, ros::NodeHan
                      << "configuration: " << e.getMessage() << ".\n"
                      << "Please check the configuration, particularly parameter types.");
     return false;
+  }
+  return true;
+}
+
+bool RmRobotHW::parseGpioData(XmlRpc::XmlRpcValue& gpio_datas, ros::NodeHandle& robot_hw_nh)
+{
+  for (auto it = gpio_datas.begin(); it != gpio_datas.end(); ++it)
+  {
+    if (it->second.hasMember("pin"))
+    {
+      rm_control::GpioData gpio_data;
+      gpio_data.name = it->first;
+      if (std::string(gpio_datas[it->first]["direction"]) == "in")
+      {
+        gpio_data.type = rm_control::INPUT;
+      }
+      else if (std::string(gpio_datas[it->first]["direction"]) == "out")
+      {
+        gpio_data.type = rm_control::OUTPUT;
+      }
+      else
+      {
+        ROS_ERROR("Type set error of %s!", it->first.data());
+        continue;
+      }
+      gpio_data.pin = gpio_datas[it->first]["pin"];
+      gpio_data.value = new bool(false);
+      gpio_manager_.setGpioDirection(gpio_data);
+      gpio_manager_.gpio_state_values.push_back(gpio_data);
+      rm_control::GpioStateHandle gpio_state_handle(it->first, gpio_data.type,
+                                                    gpio_manager_.gpio_state_values.back().value);
+      gpio_state_interface_.registerHandle(gpio_state_handle);
+
+      if (gpio_data.type == rm_control::OUTPUT)
+      {
+        gpio_manager_.gpio_command_values.push_back(gpio_data);
+        rm_control::GpioCommandHandle gpio_command_handle(it->first, gpio_data.type,
+                                                          gpio_manager_.gpio_command_values.back().value);
+        gpio_command_interface_.registerHandle(gpio_command_handle);
+      }
+    }
+    else
+    {
+      ROS_ERROR("Module %s hasn't set pin ID", it->first.data());
+    }
   }
   return true;
 }
