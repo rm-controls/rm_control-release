@@ -24,6 +24,7 @@ add_message_files(
         MovingAverageData.msg
         SuperCapacitor.msg
         TofSensor.msg
+        GpioData.msg
 )
 
 add_service_files(
@@ -39,9 +40,7 @@ add_message_files(
         FILES
         TargetDetection.msg
         TargetDetectionArray.msg
-        TrackCmd.msg
         TrackData.msg
-        TrackDataArray.msg
 )
 
 add_action_files(
