@@ -1,0 +1,144 @@
+ros-noetic-rm-msgs (0.1.12-1buster) buster; urgency=high
+
+  * Merge pull request #59 <https://github.com/ye-luo-xi-tui/rm_control/issues/59> from ye-luo-xi-tui/master
+    0.1.11
+  * Contributors: QiayuanLiao
+
+ -- qiayuan <liaoqiayuan@gmail.com>  Sat, 11 Jun 2022 00:00:00 -0000
+
+ros-noetic-rm-msgs (0.1.11-1buster) buster; urgency=high
+
+  * Merge pull request #55 <https://github.com/ye-luo-xi-tui/rm_control/issues/55> from jceleven/master
+    Add the use_id_classification flag.
+  * Add the use_id_classification flag.
+  * Merge pull request #53 <https://github.com/ye-luo-xi-tui/rm_control/issues/53> from ye-luo-xi-tui/master
+    Delete target_velocity in GimbalCmd.msg
+  * Merge pull request #54 <https://github.com/ye-luo-xi-tui/rm_control/issues/54> from ye-luo-xi-tui/command_source_frame
+    Add command_source_frame to ChassisCmd.msg
+  * Add command_source_frame to ChassisCmd.msg.
+  * Delete target_velocity in GimbalCmd.msg.
+  * Gpio interface 2 (#51 <https://github.com/ye-luo-xi-tui/rm_control/issues/51>)
+    * Write a gpio_manager, it can initialize with pin ID and direction, and write output or read Input.
+    * Modifier readInput().
+    * Write gpio_state_interface.h(read only)
+    * write gpio_state_interface.h(read only)
+    * Modifier gpio manager. Write a new writeOutput() function.
+    * Add gpio_state_interface in robotHW
+    * Solve a error
+    * Modifier names of variables.
+    * Set GpioReadHandle and GpioWriteHandle. Register GpioReadInterface and GpioWriteInterface. Improve the code about gpio and delete unnecessary things.
+    * Add GpioRead.msg GpioWrite.msg.
+    * Add Gpio controller.
+    * Update Gpio controller.
+    * Update Gpio controller.
+    * Update gpio controller.
+    * Update gpio_controller.
+    * Update gpio_controller to version 2.0.
+    * Update gpio_interface to version2.0.
+    Co-authored-by: yezi <mailto:1536117624@qq.com>
+    Co-authored-by: ye-luo-xi-tui <mailto:74857762+ye-luo-xi-tui@users.noreply.github.com>
+    Co-authored-by: QiayuanLiao <mailto:liaoqiayuan@gmail.com>
+  * Merge pull request #49 <https://github.com/ye-luo-xi-tui/rm_control/issues/49> from ChenZheng29/master
+    Delete cost function and modify the track topic
+  * Modify the track topic name and message, and unify the track interface
+  * Merge remote-tracking branch 'origin/master'
+  * Add testing option to shooter for testing the trigger without friction wheel
+  * Contributors: Jiachen Shen, QiayuanLiao, Yuexin Mu, YuuinIH, chenzheng, qiayuan, yezi
+
+ -- qiayuan <liaoqiayuan@gmail.com>  Fri, 10 Jun 2022 00:00:00 -0000
+
+ros-noetic-rm-msgs (0.1.10-1buster) buster; urgency=high
+
+  * Merge pull request #43 <https://github.com/rm-controls/rm_control/issues/43> from ye-luo-xi-tui/track_msg
+    Add TrackCmd.msg
+  * Modifier TrackCmd.msg format.
+  * Add TrackCmd.msg.
+  * Merge pull request #42 <https://github.com/rm-controls/rm_control/issues/42> from ye-luo-xi-tui/service
+    Add enable_imu_trigger service
+  * Rename ImuTriggerSwitch.srv to EnableImuTrigger.srv and add something.
+  * Add ImuTriggerSwitch.srv.
+  * Contributors: QiayuanLiao, yezi
+
+ -- qiayuan <liaoqiayuan@gmail.com>  Sun, 22 May 2022 00:00:00 -0000
+
+ros-noetic-rm-msgs (0.1.9-1buster) buster; urgency=high
+
+  * Update rm_msgs cmake minimum required. (#36 <https://github.com/ye-luo-xi-tui/rm_control/issues/36>)
+  * Merge pull request #27 <https://github.com/ye-luo-xi-tui/rm_control/issues/27> from Zhouzhenjie/master
+    Add the service for the conversation between a camera and a imu.
+  * Merge pull request #29 <https://github.com/ye-luo-xi-tui/rm_control/issues/29> from Edwinlinks/tof_sensor_interface
+    Completed tof_sensor_interface
+  * Modified the reference order of header files and packet parsing of tof sensor, data type of dis_status
+  * Add tof sensor interface in rm_common, add parsing can frame in can_bus.cpp, and add TofSensor.msg in rm_msgs.
+  * Merge remote-tracking branch 'origin/master'
+  * Add the service for the conversation between a camera and a imu.
+  * Contributors: Edwinlinks, Jie j, QiayuanLiao, YuuinIH
+
+ -- qiayuan <liaoqiayuan@gmail.com>  Mon, 28 Mar 2022 00:00:00 -0000
+
+ros-noetic-rm-msgs (0.1.8-1buster) buster; urgency=high
+
+  * Merge branch 'master' into gimbal/opti_or_simplify
+  * Update CHANGELOG
+  * Remove cover of ShooterCmd
+  * Contributors: qiayuan
+
+ -- qiayuan <liaoqiayuan@gmail.com>  Tue, 07 Dec 2021 00:00:00 -0000
+
+ros-noetic-rm-msgs (0.1.7-1buster) buster; urgency=high
+
+  * 0.1.6
+  * Update CHANGELOG
+  * Merge branch 'gimbal/opti_or_simplify'
+  * Modified GimbalCmd.msg, and delete moving_average_filter
+  * Contributors: qiayuan
+
+ -- qiayuan <liaoqiayuan@gmail.com>  Sun, 26 Sep 2021 00:00:00 -0000
+
+ros-noetic-rm-msgs (0.1.6-1buster) buster; urgency=high
+
+  * Merge branch 'gimbal/opti_or_simplify'
+  * Modified GimbalCmd.msg, and delete moving_average_filter
+  * Contributors: qiayuan
+
+ -- qiayuan <liaoqiayuan@gmail.com>  Sun, 26 Sep 2021 00:00:00 -0000
+
+ros-noetic-rm-msgs (0.1.5-1buster) buster; urgency=high
+
+
+
+ -- qiayuan <liaoqiayuan@gmail.com>  Thu, 02 Sep 2021 00:00:00 -0000
+
+ros-noetic-rm-msgs (0.1.4-1buster) buster; urgency=high
+
+
+
+ -- qiayuan <liaoqiayuan@gmail.com>  Thu, 02 Sep 2021 00:00:00 -0000
+
+ros-noetic-rm-msgs (0.1.3-1buster) buster; urgency=high
+
+  * Merge branch 'master' into master
+  * Rename rm_base to rm_hw
+  * Contributors: QiayuanLiao, qiayuan
+  * Merge branch 'master' into master
+  * Rename rm_base to rm_hw
+  * Contributors: QiayuanLiao, qiayuan
+
+ -- qiayuan <liaoqiayuan@gmail.com>  Wed, 01 Sep 2021 00:00:00 -0000
+
+ros-noetic-rm-msgs (0.1.2-1buster) buster; urgency=high
+
+  * Run pre-commit
+  * Add missing CATKIN_DEPENDS in catkin_package()
+  * Contributors: qiayuan
+
+ -- qiayuan <liaoqiayuan@gmail.com>  Sat, 14 Aug 2021 00:00:00 -0000
+
+ros-noetic-rm-msgs (0.1.1-1buster) buster; urgency=high
+
+  * Reset all version to 0.1.0
+  * Contributors: qiayuan
+
+ -- qiayuan <liaoqiayuan@gmail.com>  Thu, 12 Aug 2021 00:00:00 -0000
+
+
