@@ -2,6 +2,22 @@
 Changelog for package rm_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.1.15 (2022-09-02)
+-------------------
+
+0.1.14 (2022-06-16)
+-------------------
+* Merge branch 'master' into param
+  # Conflicts:
+  #	rm_common/include/rm_common/decision/command_sender.h
+* Merge pull request `#64 <https://github.com/rm-controls/rm_control/issues/64>`_ from Edwinlinks/referee-msgs
+  Add msgs of rm_referee
+* Delete the unnecessary msgs from CMakeLists.txt
+* Delete the unnecessary msg
+* Modify the code style error of referee msg
+* Add msgs of rm_referee
+* Contributors: Edwinlinks, QiayuanLiao, yezi
+
 0.1.13 (2022-06-12)
 -------------------
 * Merge pull request `#58 <https://github.com/rm-controls/rm_control/issues/58>`_ from Edwinlinks/tf-radar-interface
