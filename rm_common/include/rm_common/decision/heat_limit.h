@@ -37,13 +37,18 @@
 
 #pragma once
 
-#include "rm_common/referee/data.h"
+#include <ros/ros.h>
+#include <rm_msgs/GameRobotStatus.h>
+#include <rm_msgs/PowerHeatData.h>
+#include <rm_msgs/ShootCmd.h>
+
 namespace rm_common
 {
 class HeatLimit
 {
 public:
-  HeatLimit(ros::NodeHandle& nh, const RefereeData& referee_data) : referee_data_(referee_data)
+  HeatLimit(ros::NodeHandle& nh)
+
   {
     if (!nh.getParam("low_shoot_frequency", low_shoot_frequency_))
       ROS_ERROR("Expect shoot frequency no defined (namespace: %s)", nh.getNamespace().c_str());
@@ -70,40 +75,64 @@ public:
     BURST = 2,
   } ShootHz;
 
+  void setStatusOfShooter(const rm_msgs::GameRobotStatus data)
+  {
+    if (type_ == "ID1_17MM")
+    {
+      shooter_cooling_limit_ = data.shooter_id_1_17_mm_cooling_limit;
+      shooter_cooling_rate_ = data.shooter_id_1_17_mm_cooling_rate;
+      shooter_speed_limit_ = data.shooter_id_1_17_mm_speed_limit;
+    }
+    else if (type_ == "ID2_17MM")
+    {
+      shooter_cooling_limit_ = data.shooter_id_2_17_mm_cooling_limit;
+      shooter_cooling_rate_ = data.shooter_id_2_17_mm_cooling_rate;
+      shooter_speed_limit_ = data.shooter_id_2_17_mm_speed_limit;
+    }
+    else if (type_ == "ID1_42MM")
+    {
+      shooter_cooling_limit_ = data.shooter_id_1_42_mm_cooling_limit;
+      shooter_cooling_rate_ = data.shooter_id_1_42_mm_cooling_rate;
+      shooter_speed_limit_ = data.shooter_id_1_42_mm_speed_limit;
+    }
+  }
+
+  void setCoolingHeatOfShooter(const rm_msgs::PowerHeatData data)
+  {
+    if (type_ == "ID1_17MM")
+    {
+      shooter_cooling_heat_ = data.shooter_id_1_17_mm_cooling_heat;
+    }
+    else if (type_ == "ID2_17MM")
+    {
+      shooter_cooling_heat_ = data.shooter_id_2_17_mm_cooling_heat;
+    }
+    else if (type_ == "ID1_42MM")
+    {
+      shooter_cooling_heat_ = data.shooter_id_1_42_mm_cooling_heat;
+    }
+  }
+
+  void setRefereeStatus(bool status)
+  {
+    referee_is_online_ = status;
+  }
+
   double getShootFrequency() const
   {
     if (state_ == BURST)
       return shoot_frequency_;
-    if (!referee_data_.is_online_)
+    if (!referee_is_online_)
       return safe_shoot_frequency_;
-    double cooling_limit{}, cooling_rate{}, cooling_heat{};
-    if (type_ == "ID1_17MM")
-    {
-      cooling_limit = referee_data_.game_robot_status_.shooter_id_1_17_mm_cooling_limit_;
-      cooling_rate = referee_data_.game_robot_status_.shooter_id_1_17_mm_cooling_rate_;
-      cooling_heat = referee_data_.power_heat_data_.shooter_id_1_17_mm_cooling_heat_;
-    }
-    else if (type_ == "ID2_17MM")
-    {
-      cooling_limit = referee_data_.game_robot_status_.shooter_id_2_17_mm_cooling_limit_;
-      cooling_rate = referee_data_.game_robot_status_.shooter_id_2_17_mm_cooling_rate_;
-      cooling_heat = referee_data_.power_heat_data_.shooter_id_2_17_mm_cooling_heat_;
-    }
-    else if (type_ == "ID1_42MM")
-    {
-      cooling_limit = referee_data_.game_robot_status_.shooter_id_1_42_mm_cooling_limit_;
-      cooling_rate = referee_data_.game_robot_status_.shooter_id_1_42_mm_cooling_rate_;
-      cooling_heat = referee_data_.power_heat_data_.shooter_id_1_42_mm_cooling_heat_;
-    }
 
-    if (cooling_limit - cooling_heat < bullet_heat_)
+    if (shooter_cooling_limit_ - shooter_cooling_heat_ < bullet_heat_)
       return 0.0;
-    else if (cooling_limit - cooling_heat == bullet_heat_)
-      return cooling_rate / bullet_heat_;
-    else if (cooling_limit - cooling_heat <= bullet_heat_ * heat_coeff_)
-      return (cooling_limit - cooling_heat) / (bullet_heat_ * heat_coeff_) *
-                 (shoot_frequency_ - cooling_rate / bullet_heat_) +
-             cooling_rate / bullet_heat_;
+    else if (shooter_cooling_limit_ - shooter_cooling_heat_ == bullet_heat_)
+      return shooter_cooling_rate_ / bullet_heat_;
+    else if (shooter_cooling_limit_ - shooter_cooling_heat_ <= bullet_heat_ * heat_coeff_)
+      return (shooter_cooling_limit_ - shooter_cooling_heat_) / (bullet_heat_ * heat_coeff_) *
+                 (shoot_frequency_ - shooter_cooling_rate_ / bullet_heat_) +
+             shooter_cooling_rate_ / bullet_heat_;
     else
       return shoot_frequency_;
   }
@@ -112,7 +141,7 @@ public:
   {
     updateExpectShootFrequency();
     if (type_ == "ID1_17MM")
-      switch (referee_data_.game_robot_status_.shooter_id_1_17_mm_speed_limit_)
+      switch (shooter_speed_limit_)
       {
         case 15:
           return rm_msgs::ShootCmd::SPEED_15M_PER_SECOND;
@@ -124,7 +153,7 @@ public:
           return rm_msgs::ShootCmd::SPEED_15M_PER_SECOND;  // Safety speed
       }
     else if (type_ == "ID2_17MM")
-      switch (referee_data_.game_robot_status_.shooter_id_2_17_mm_speed_limit_)
+      switch (shooter_speed_limit_)
       {
         case 15:
           return rm_msgs::ShootCmd::SPEED_15M_PER_SECOND;
@@ -136,7 +165,7 @@ public:
           return rm_msgs::ShootCmd::SPEED_15M_PER_SECOND;  // Safety speed
       }
     else if (type_ == "ID1_42MM")
-      switch (referee_data_.game_robot_status_.shooter_id_1_42_mm_speed_limit_)
+      switch (shooter_speed_limit_)
       {
         case 10:
           return rm_msgs::ShootCmd::SPEED_10M_PER_SECOND;
@@ -183,12 +212,14 @@ private:
     }
   }
 
+  uint8_t state_{};
   std::string type_{};
-  const RefereeData& referee_data_;
+  bool burst_flag_ = false;
   double bullet_heat_, safe_shoot_frequency_{}, heat_coeff_{}, shoot_frequency_{}, low_shoot_frequency_{},
       high_shoot_frequency_{}, burst_shoot_frequency_{};
-  uint8_t state_{};
-  bool burst_flag_ = false;
+
+  bool referee_is_online_;
+  int shooter_cooling_limit_, shooter_cooling_rate_, shooter_cooling_heat_, shooter_speed_limit_;
 };
 
 }  // namespace rm_common
