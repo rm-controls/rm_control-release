@@ -1,0 +1,12 @@
+Source: ros-noetic-rm-referee
+Section: misc
+Priority: optional
+Maintainer: Qiayuan Liao <liaoqiayuan@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), ros-noetic-actionlib, ros-noetic-catkin, ros-noetic-nav-msgs, ros-noetic-rm-common, ros-noetic-rm-msgs, ros-noetic-roscpp, ros-noetic-roslint, ros-noetic-sensor-msgs, ros-noetic-serial, ros-noetic-std-msgs, ros-noetic-tf2-geometry-msgs
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-noetic-rm-referee
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-noetic-actionlib, ros-noetic-nav-msgs, ros-noetic-rm-common, ros-noetic-rm-msgs, ros-noetic-roscpp, ros-noetic-roslint, ros-noetic-sensor-msgs, ros-noetic-serial, ros-noetic-std-msgs, ros-noetic-tf2-geometry-msgs
+Description: A template for ROS packages.
