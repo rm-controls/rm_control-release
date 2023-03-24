@@ -1,0 +1,12 @@
+Source: ros-noetic-rm-gazebo
+Section: misc
+Priority: optional
+Maintainer: Qiayuan Liao <liaoqiayuan@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), gazebo11, ros-noetic-catkin, ros-noetic-gazebo-ros, ros-noetic-gazebo-ros-control, ros-noetic-rm-common, ros-noetic-roscpp
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-noetic-rm-gazebo
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, gazebo11, ros-noetic-gazebo-ros, ros-noetic-gazebo-ros-control, ros-noetic-rm-common, ros-noetic-rm-description, ros-noetic-roboticsgroup-upatras-gazebo-plugins, ros-noetic-roscpp
+Description: A template for ROS packages.
