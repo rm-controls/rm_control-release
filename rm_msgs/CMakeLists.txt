@@ -16,6 +16,7 @@ add_message_files(
         DbusData.msg
         ChassisCmd.msg
         ShootCmd.msg
+        ShootState.msg
         GimbalCmd.msg
         GimbalDesError.msg
         LpData.msg
@@ -24,6 +25,8 @@ add_message_files(
         SuperCapacitor.msg
         GpioData.msg
         TofRadarData.msg
+        TagMsg.msg
+        TagMsgArray.msg
 )
 
 add_service_files(
